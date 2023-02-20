@@ -9,7 +9,7 @@ app.use(cors());
 
 mongoose.set("strictQuery", false);
 mongoose
-  .connect("mongodb+srv://Admin:123321@testbd.s0uqqhg.mongodb.net/test", {
+  .connect("mongodb+srv://<name>:<pass>@<cluster>", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
