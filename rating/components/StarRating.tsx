@@ -2,15 +2,11 @@ import React, { useState } from "react";
 import { Star } from "./Star";
 
 interface StarRatingProps {
-  totalStars?: number;
-  startRating: number;
+  totalStars: number;
 }
 
-const StarRating: React.FC<StarRatingProps> = ({
-  startRating,
-  totalStars = 5,
-}) => {
-  const [selectedStars, setSelectedStars] = useState<number>(startRating);
+const StarRating: React.FC<StarRatingProps> = ({ totalStars }) => {
+  const [selectedStars, setSelectedStars] = useState<number>(0);
 
   const handleStarSelect = (starIndex: number) => {
     setSelectedStars(starIndex + 1);

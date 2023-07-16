@@ -1,8 +1,9 @@
-import React from "react";
-import StarRating from "./components/StarRating";
+import React, { useState } from "react";
+import colorData from "./data/colorData";
+import ColorList from "./components/ColorList";
+import { IColor } from "./models";
 
-const App: React.FC = () => {
-  return <StarRating totalStars={5} />;
-};
-
-export default App;
+export default function App() {
+  const [colors] = useState<IColor[]>(colorData);
+  return <ColorList colors={colors} />;
+}
