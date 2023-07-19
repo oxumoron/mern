@@ -1,3 +1,4 @@
+import { log } from "console";
 import React from "react";
 import { Star } from "./Star";
 
