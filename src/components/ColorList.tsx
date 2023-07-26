@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import Color from "./Color";
 import { IColor } from "../models";
+import { ColorContext } from "../context/ColorProvider";
 
 interface ColorListProps {
   colors: IColor[];
@@ -13,9 +14,12 @@ const ColorList: React.FC<ColorListProps> = ({
   removeColor,
   onRateColor,
 }) => {
-  if (!colors.length) return <div>No Colors Listed.</div>;
+  const colorContext = useContext(ColorContext);
+
+  if (!colorContext) return <div>No Colors Listed. (Add a Color)</div>;
+
   return (
-    <div>
+    <div className="color-list">
       {colors.map((color) => (
         <Color
           key={color.id}

@@ -10,17 +10,26 @@ interface ColorProps {
 }
 
 const Color: React.FC<ColorProps> = ({ color, remove, onRate }) => {
+  const handleRate = (rating: number) => {
+    if (onRate) {
+      onRate(color.id, rating);
+    }
+  };
+
+  const handleRemove = () => {
+    if (remove) {
+      remove(color.id);
+    }
+  };
+
   return (
     <section>
       <h1>{color.title}</h1>
-      <button onClick={() => remove(color.id)}>
+      <div style={{ height: 50, backgroundColor: color.color }} />
+      <button onClick={handleRemove}>
         <FaTrash />
       </button>
-      <div style={{ height: 50, backgroundColor: color.color }} />
-      <StarRating
-        initialRating={color.rating}
-        onRatingChange={(rating) => onRate(color.id, rating)}
-      />
+      <StarRating selectedStars={color.rating} onRate={handleRate} />
     </section>
   );
 };

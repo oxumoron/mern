@@ -3,9 +3,9 @@ import { FaStar } from "react-icons/fa";
 
 interface StarProps {
   selected?: boolean;
-  onClick?: () => void;
+  onSelect?: () => void;
 }
 
-export const Star: React.FC<StarProps> = ({ selected, onClick }) => (
-  <FaStar color={selected ? "red" : "grey"} onClick={onClick} />
+export const Star: React.FC<StarProps> = ({ selected, onSelect }) => (
+  <FaStar color={selected ? "red" : "grey"} onClick={onSelect} />
 );
